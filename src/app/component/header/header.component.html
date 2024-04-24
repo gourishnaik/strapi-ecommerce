@@ -1,0 +1,25 @@
+<header>
+    <div class="navbar navbar-dark bg-light"routerLink="/" style="cursor: pointer;">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 22px; color: black; margin-left: 12px; margin-top: 1px;" class="fas fa-shipping-fast"></i>
+            <h4 style="font-size: 25px; color: black; margin-left: 10px;text-transform: capitalize;">shop Website</h4>
+            
+        </div>
+        
+      
+        <h2 *ngIf="showLogoutButton" style="float: right;margin-right: 10px;text-transform: capitalize;">Hello,<span style="color: purple;">{{this.usernameLogin}}</span> </h2>
+        <button class="btn btn-light">
+           
+            <button *ngIf="!isAdminDashboard()" routerLink="/admin-login" class="btn btn-dark">Admin Login</button>&nbsp;
+
+            <button *ngIf="showLoginButton"  routerLink="/login-page" style="margin-right: 44px;" class="btn btn-primary">User Login</button> 
+            <button *ngIf="isAdminDashboard()" routerLink="/admin-login" class="btn btn-dark">Admin Logout</button> &nbsp;
+            <button *ngIf="showLogoutButton"  routerLink="/login-page" style="margin-right: 44px;" class="btn btn-danger">Logout</button>
+            <i *ngIf="!isAdminDashboard()" routerLink="/cart"style="font-size: 30px;" class="fas fa-cart-plus">
+            <div style="font-size: 14px;" class="badge bg-success">{{ totalItem }}</div></i>
+        </button>
+    </div>
+</header>
+
+
+<!-- <h2 style="float: right;margin-right: 10px;">Hello , <span style="color: purple;">{{this.usernameLogin}}</span> </h2> -->

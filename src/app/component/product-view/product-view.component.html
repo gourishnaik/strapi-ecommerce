@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row product-detail">
+        <div class="col-sm-3">
+            <img class="product-img"src="{{productdata?.attributes.imageUrl}}">
+     <div>
+        
+        <button (click)="addtocart(productdata)" *ngIf="showadd" class="btn btn-primary btn-lg">Add to Cart</button>&nbsp;
+ 
+     </div>
+     
+        </div>
+   
+
+    <!-- right side-->
+    <div class="col-sm-8">
+        <div>
+            <h1 style="text-transform: capitalize;
+        ">{{productdata?.attributes.name}}</h1>
+            <p style="color:green">Special Price</p>
+            <h3>Price:$ {{productdata.attributes.price}}</h3>
+            <!-- <strong>Category:&nbsp;{{productdata?.category}}</strong><br> -->
+            <strong>Description:</strong><br>
+            <p>{{productdata?.attributes.
+                description
+                }}</p>
+
+        <strong>Stocks:<span style="color: red;"> {{productdata?.attributes.quantity}} </span> Units left</strong><br>
+        <button routerLink="/" class="btn btn-warning text-light mt-2">BACK</button>
+        </div>
+    </div>
+</div>
+</div>

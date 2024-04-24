@@ -1,0 +1,35 @@
+<app-header> </app-header>
+
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of productList">
+      <div class="card col-md-3">
+        <img src="{{ item.attributes.imageUrl }}" alt="" />
+        <h5 class="products" style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          ">
+          {{ item.attributes.name }}
+        </h5>
+        <p style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          ">
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong> ${{ item.attributes.price }}</p>
+        <button class="btn btn-primary" routerLink="/product-view/{{item.id}}">
+          view details
+        </button>
+        <button class="btn btn-dark mt-1" (click)="addtoCart(item)">
+          Add to cart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>

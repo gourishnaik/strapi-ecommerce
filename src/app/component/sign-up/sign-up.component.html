@@ -1,0 +1,29 @@
+<app-login-signupheader></app-login-signupheader>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong mb-5" style="border-radius: 1rem;box-shadow: 2px 2px 4px gray;">
+                    <div class="card-body p-5 text-center">
+                        <h3 style="font-size: 30px;" class="mb-5">Signup</h3>
+                        <form [formGroup]="signupform" (ngSubmit)="onSubmit()">
+                            <div class="form-outline mb-4">
+                                <input type="email" formControlName="username" placeholder="username" class="form-control form-control-lg" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="email" formControlName="email" placeholder="email" class="form-control form-control-lg" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" formControlName="password" placeholder="Password" class="form-control form-control-lg" />
+                            </div>
+                            <button class="btn btn-primary" type="submit">Signup</button>&nbsp;
+                            <p class="mt-3 pb-lg-2">Already have an account?
+                                <a routerLink="/login-page"  style=" cursor: pointer; font-weight: 700;">Signup</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
