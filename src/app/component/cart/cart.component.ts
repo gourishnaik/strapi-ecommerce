@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
-
+// @ts-ignore
+import {load} from '@cashfreepayments/cashfree-js';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -28,6 +29,9 @@ export class CartComponent implements OnInit {
       0
     );
   }
+
+
+
   removeItem(item: any) {
     this.cartservice.removeCartItem(item);
     if(this.products.length ==0){
@@ -40,6 +44,7 @@ export class CartComponent implements OnInit {
   }
   checkout(){
     this.cartservice.removeAllCart();
+    this.confirmbooking() 
   }
   calculateTotalPrice(item: any): number {
     return item.attributes.price * item.quantity;
@@ -53,4 +58,17 @@ export class CartComponent implements OnInit {
     });
     return grandTotal1;
   }
+
+  async confirmbooking() {
+    const cashfree = await load({
+      mode: "sandbox" //or sandbox
+    });
+      const checkoutOptions = {
+        paymentSessionId: "session_Zqka-Mg4Vc73GaPZifEhVWkGLTFiXrOcIcLevLjZBnN2B0qIbcvWcGSDXZCHvgukrh3b2dzmtTGAgzOGIgnwnMW48Nk3zifhNprbs2YDrt4M",
+      redirectTarget: "_self" // optional (_self or _blank)
+      
+      }
+      cashfree.checkout(checkoutOptions);
+    }
+    //https://docs.cashfree.com/docs/web-integration-introduction
 }
