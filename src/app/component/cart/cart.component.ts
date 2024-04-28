@@ -71,4 +71,5 @@ export class CartComponent implements OnInit {
       cashfree.checkout(checkoutOptions);
     }
     //https://docs.cashfree.com/docs/web-integration-introduction
+  //npm install @cashfreepayments/cashfree-js@1.0.4
 }
